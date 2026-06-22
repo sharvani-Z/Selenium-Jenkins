@@ -16,7 +16,9 @@ public class Hooks {
     @After
     public void tearDown() {
 
+        if (DriverFactory.driver != null) {
         DriverFactory.driver.quit();
+        }
         DriverFactory.driver = null;
     }
 }
