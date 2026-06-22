@@ -20,14 +20,20 @@ public class SortSteps {
     @Then("Products should be sorted")
     public void verifySortResults() {
 
-        WebElement sortDropdown
-                = DriverFactory.getDriver()
-                        .findElement(By.id("s-result-sort-select"));
+        WebDriverWait wait =
+                new WebDriverWait(
+                        DriverFactory.getDriver(),
+                        Duration.ofSeconds(10));
+
+        WebElement sortDropdown =
+                wait.until(ExpectedConditions
+                        .visibilityOfElementLocated(
+                                By.id("s-result-sort-select")));
 
         Select select = new Select(sortDropdown);
 
-        String selectedOption
-                = select.getFirstSelectedOption().getText();
+        String selectedOption =
+                select.getFirstSelectedOption().getText();
 
         if (!selectedOption.contains("Low to High")) {
 
