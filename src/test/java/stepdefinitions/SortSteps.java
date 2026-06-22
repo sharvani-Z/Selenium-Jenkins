@@ -3,7 +3,9 @@ package stepdefinitions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.Duration;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.SearchPage;
